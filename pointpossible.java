@@ -16,8 +16,8 @@ Two point basket
 int totalTD = 0;
 int totalFG = 0;
 int totalsafety = 0;
-int totalxpoints = 0;
-int totaloutcomes = 0;
+//int totalxpoints = 0;
+//int totaloutcomes = 0;
 
 Scanner scan = new Scanner (System.in);
 
@@ -28,24 +28,71 @@ String sport = scan.nextLine();
 
 //System.out.print("Enter the point total of one player"); //For basketball
 
-if(sport.equals("Football")){
+if(sport.equals("f")){
     System.out.print("Enter the point total of one team: ");
     int totalpoints = scan.nextInt();
 
 for(int iterator = 0; iterator < totalpoints; iterator +=7){
-totalTD++;
+    if(iterator + 7 > totalpoints){
+
+    }
+
+    else{
+     totalTD++;
+    }
     }
 
 for(int iterator = 0; iterator < totalpoints; iterator +=3){
+       if(iterator + 3 > totalpoints){
+
+       }
+
+       else{
         totalFG++;
-            }
+       }
+  
+     }
 
  for(int iterator = 0; iterator < totalpoints; iterator +=2){
-                totalsafety++;
-                    }
+    if(iterator + 2 >totalpoints){
+
+    }
+
+    else{
+     totalsafety++;
+    }
+}
+
+int referenceTD = totalTD;
+int referenceFG = totalFG;
+int referenceSAFE =totalsafety;
+
+/* 
+totalTD = 0;
+totalFG = 0;
+totalsafety = 0;
+*/
+for(int iterator = 7; iterator>referenceTD; iterator +=7){
+    int placeholder = iterator;
+
+    for(int iterator2 = 0; iterator2<referenceFG; iterator2++){
+while(iterator < totalpoints){
+    iterator += 3;
+}
+
+if(iterator == totalpoints){
+
+}
+
+else{
+
+}
+    }
+iterator = placeholder;
+}
 
 
-                    System.out.println("There will be at least " + totalTD + " TD's, " + totalFG + " FG's and " + totalsafety + " Safeties.");
+    System.out.println("There will be at least " + totalTD + " TD's, " + totalFG + " FG's and " + totalsafety + " Safeties.");
 } 
 
 else{
