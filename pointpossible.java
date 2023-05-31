@@ -73,6 +73,9 @@ int placeholderFG = 0;
 int placeholderSAFE = 0;
 
 int testtotal = 0;
+
+//STARTING WITH TD'S (AND ALL OF THIS IS BASED ON IT)
+
 for(int iterator = referenceTD; iterator>=0; iterator--){
    int placeholder = iterator;
    System.out.println("\n  Now iterating with " + iterator + " touchdown(s):");
@@ -89,6 +92,9 @@ for(int iterator = referenceTD; iterator>=0; iterator--){
   }
 
 
+        //IF THE TOTAL IS NOT ALL TD's
+
+
     else {
         placeholderFG = referenceFG;
         int totalplaceholder = testtotal;
@@ -98,19 +104,82 @@ for(int iterator = referenceTD; iterator>=0; iterator--){
         int tempFG = placeholderFG*3;
         testtotal+=tempFG;
 
+        System.out.println("After FG: " + testtotal);
+        //totalplaceholder = testtotal;
+
         if(testtotal != totalpoints ){
-           // System.out.println("Failed Attempt with " + testtotal);
+           if(testtotal < totalpoints){
+            
+            placeholderSAFE = referenceSAFE;
+
+    int totalplaceholder2 = testtotal;
+  while(placeholderSAFE > 0){
+
+
+    int tempSAFE = placeholderSAFE*2;
+    //System.out.println("TempSAFE is " + tempSAFE +" and testtotal should be " + testtotal + "; Totalplaceholder?" + totalplaceholder2);
+    testtotal+=tempSAFE;
+
+    if(tempSAFE == 4){
+       // System.out.println("\n HEYYYYYYYYYYYY Test total IS:" + testtotal + "\n");
+     }
+
+    if(testtotal != totalpoints ){
+
+     }
+
+     else{
+         successes++;
+         System.out.println("SUCCESSFUL RUN FOR " + testtotal + "; Success Run #" + successes);
+         System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG + ", Total Safeties: " + placeholderSAFE);
+     }
+
+     testtotal = totalplaceholder2;
+     placeholderSAFE--;
+
+                }
+           }
         }
 
         else{
             successes++;
             System.out.println("SUCCESSFUL RUN FOR " + testtotal + "; Success Run #" + successes);
-            System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG);
+            System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG  + ", Total Safeties: " + placeholderSAFE);
         }
   
         testtotal = totalplaceholder;
         placeholderFG--;
+
   }
+
+
+
+
+
+  //System.out.println("Now for the safeties " + testtotal + ", and current totalplaceholder:" + totalplaceholder);
+/* 
+totalplaceholder = testtotal;
+placeholderSAFE = referenceSAFE;
+  while(placeholderSAFE > 0){
+    int tempSAFE = placeholderSAFE*2;
+    testtotal+=tempSAFE;
+ 
+
+    if(testtotal != totalpoints ){
+
+     }
+
+     else{
+         successes++;
+         System.out.println("SUCCESSFUL RUN FOR " + testtotal + "; Success Run #" + successes);
+         System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG + ", Total Safeties: " + placeholderSAFE);
+     }
+
+     testtotal = totalplaceholder;
+     placeholderSAFE--;
+
+
+  } */
 }
 
         if(testtotal != totalpoints ){
@@ -120,7 +189,7 @@ for(int iterator = referenceTD; iterator>=0; iterator--){
         else{
             successes++;
             System.out.println("2ND LOOP SUCCESSFUL RUN WITH " + testtotal + "; Success Run #" + successes);
-            System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG);
+            System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG + ", Total Safeties: " + placeholderSAFE);
         }
   
 testtotal = 0;
