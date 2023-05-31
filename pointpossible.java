@@ -30,7 +30,7 @@ String sport = scan.nextLine();
 
 if(sport.equals("f")){
     System.out.print("Enter the point total of one team: ");
-    int totalpoints = scan.nextInt();
+    final int totalpoints = scan.nextInt();
 
 for(int iterator = 0; iterator < totalpoints; iterator +=7){
     if(iterator + 7 > totalpoints){
@@ -67,20 +67,21 @@ int referenceTD = totalTD;
 int referenceFG = totalFG;
 int referenceSAFE =totalsafety;
 
-/* 
+ /* 
 totalTD = 0;
 totalFG = 0;
 totalsafety = 0;
 */
+/* 
 for(int iterator = 7; iterator>referenceTD; iterator +=7){
     int placeholder = iterator;
 
     for(int iterator2 = 0; iterator2<referenceFG; iterator2++){
-while(iterator < totalpoints){
+while(iterator2 < totalpoints){
     iterator += 3;
 }
 
-if(iterator == totalpoints){
+if(iterator2 == totalpoints){
 
 }
 
@@ -89,7 +90,62 @@ else{
 }
     }
 iterator = placeholder;
+}*/
+
+int testtotal = 0;
+for(int iterator = referenceTD; iterator>=0; iterator--){
+   int placeholder = iterator;
+   System.out.println("\n  Now iterating with " + iterator + " touchdown(s):");
+  while(placeholder > 0  ){ //&& totalTD < testtotal
+    testtotal +=7;
+    System.out.println("Adding "  + testtotal);
+    placeholder--;
+   // referenceTD--;
+
+  }
+
+
+  if(testtotal == totalpoints){
+    System.out.println("ALL TOUCHDOWNS");
+  }
+
+
+    else {
+        placeholder = referenceFG;
+        int totalplaceholder = testtotal;
+
+  while(placeholder > 0 ){
+
+        int tempFG = placeholder*3;
+        testtotal+=tempFG;
+
+        if(testtotal != totalpoints ){
+           // System.out.println("Failed Attempt with " + testtotal);
+        }
+
+        else{
+            System.out.println("SUCCESSFUL RUN FOR " + testtotal);
+        }
+  
+        testtotal = totalplaceholder;
+        placeholder--;
+  }
 }
+
+        if(testtotal != totalpoints ){
+            System.out.println("2ND LOOP FAILED ATTEMPT FOR " + testtotal);
+        }
+
+        else{
+            System.out.println("2ND LOOP SUCCESSFUL RUN FOR" + testtotal);
+        }
+  
+testtotal = 0;
+  //referenceTD = placeholder;
+    }
+
+
+
 
 
     System.out.println("There will be at least " + totalTD + " TD's, " + totalFG + " FG's and " + totalsafety + " Safeties.");
