@@ -11,8 +11,7 @@ Two point basket
 
 /*Keep in mind: There can only be so many technicals/normal fouls before all the members of oppsoing team can't play anymore*/
 
-//boolean loop1over = false;
-//boolean loop2over = false;
+
 int totalTD = 0;
 int totalFG = 0;
 int totalsafety = 0;
@@ -63,60 +62,40 @@ for(int iterator = 0; iterator < totalpoints; iterator +=3){
     }
 }
 
+System.out.println("There will be at least " + totalTD + " TD's, " + totalFG + " FG's and " + totalsafety + " Safeties.");
+
 int referenceTD = totalTD;
 int referenceFG = totalFG;
-int referenceSAFE =totalsafety;
+int referenceSAFE = totalsafety;
 
- /* 
-totalTD = 0;
-totalFG = 0;
-totalsafety = 0;
-*/
-/* 
-for(int iterator = 7; iterator>referenceTD; iterator +=7){
-    int placeholder = iterator;
-
-    for(int iterator2 = 0; iterator2<referenceFG; iterator2++){
-while(iterator2 < totalpoints){
-    iterator += 3;
-}
-
-if(iterator2 == totalpoints){
-
-}
-
-else{
-
-}
-    }
-iterator = placeholder;
-}*/
+int successes = 0;
+int placeholderFG = 0;
+int placeholderSAFE = 0;
 
 int testtotal = 0;
 for(int iterator = referenceTD; iterator>=0; iterator--){
    int placeholder = iterator;
    System.out.println("\n  Now iterating with " + iterator + " touchdown(s):");
-  while(placeholder > 0  ){ //&& totalTD < testtotal
+  while(placeholder > 0  ){ 
     testtotal +=7;
     System.out.println("Adding "  + testtotal);
     placeholder--;
-   // referenceTD--;
 
   }
 
 
   if(testtotal == totalpoints){
-    System.out.println("ALL TOUCHDOWNS");
+    System.out.print("ALL TOUCHDOWNS - ");
   }
 
 
     else {
-        placeholder = referenceFG;
+        placeholderFG = referenceFG;
         int totalplaceholder = testtotal;
 
-  while(placeholder > 0 ){
+  while(placeholderFG > 0 ){
 
-        int tempFG = placeholder*3;
+        int tempFG = placeholderFG*3;
         testtotal+=tempFG;
 
         if(testtotal != totalpoints ){
@@ -124,31 +103,33 @@ for(int iterator = referenceTD; iterator>=0; iterator--){
         }
 
         else{
-            System.out.println("SUCCESSFUL RUN FOR " + testtotal);
+            successes++;
+            System.out.println("SUCCESSFUL RUN FOR " + testtotal + "; Success Run #" + successes);
+            System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG);
         }
   
         testtotal = totalplaceholder;
-        placeholder--;
+        placeholderFG--;
   }
 }
 
         if(testtotal != totalpoints ){
-            System.out.println("2ND LOOP FAILED ATTEMPT FOR " + testtotal);
+            System.out.println("2ND LOOP FAILED ATTEMPT WITH " + testtotal);
         }
 
         else{
-            System.out.println("2ND LOOP SUCCESSFUL RUN FOR" + testtotal);
+            successes++;
+            System.out.println("2ND LOOP SUCCESSFUL RUN WITH " + testtotal + "; Success Run #" + successes);
+            System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG);
         }
   
 testtotal = 0;
-  //referenceTD = placeholder;
+//referenceTD = placeholder;
+//referenceFG = FG
     }
 
+    System.out.println("\nTotal number of possibilties: " + successes);
 
-
-
-
-    System.out.println("There will be at least " + totalTD + " TD's, " + totalFG + " FG's and " + totalsafety + " Safeties.");
 } 
 
 else{
