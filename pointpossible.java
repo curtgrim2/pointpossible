@@ -16,18 +16,17 @@ int totalTD = 0;
 int totalFG = 0;
 int totalsafety = 0;
 //int totalxpoints = 0;
-//int totaloutcomes = 0;
 
 Scanner scan = new Scanner (System.in);
 
-System.out.print("Enter sport (Football or Basketball: ");
+System.out.print("Enter sport ( 'f' for Football or 'b' for Basketball): ");
 if( scan.hasNextLine()){
 
 String sport = scan.nextLine();
 
 //System.out.print("Enter the point total of one player"); //For basketball
 
-if(sport.equals("f")){
+if(sport.equals("f") ){
     System.out.print("Enter the point total of one team: ");
     final int totalpoints = scan.nextInt();
 
@@ -62,7 +61,7 @@ for(int iterator = 0; iterator < totalpoints; iterator +=3){
     }
 }
 
-System.out.println("There will be at least " + totalTD + " TD's, " + totalFG + " FG's and " + totalsafety + " Safeties.");
+//System.out.println("\n (There will be at least " + totalTD + " TD's, " + totalFG + " FG's and " + totalsafety + " Safeties.)");
 
 int referenceTD = totalTD;
 int referenceFG = totalFG;
@@ -78,17 +77,15 @@ int testtotal = 0;
 
 for(int iterator = referenceTD; iterator>=0; iterator--){
    int placeholder = iterator;
-   System.out.println("\n  Now iterating with " + iterator + " touchdown(s):");
+   //System.out.println("\n  Now iterating with " + iterator + " touchdown(s):");
   while(placeholder > 0  ){ 
     testtotal +=7;
-    System.out.println("Adding "  + testtotal);
     placeholder--;
-
   }
-
+//System.out.println("Adding "  + testtotal);
 
   if(testtotal == totalpoints){
-    System.out.print("ALL TOUCHDOWNS - ");
+    System.out.print("\n" + "   ALL TOUCHDOWNS - ");
   }
 
 
@@ -104,8 +101,7 @@ for(int iterator = referenceTD; iterator>=0; iterator--){
         int tempFG = placeholderFG*3;
         testtotal+=tempFG;
 
-        System.out.println("After FG: " + testtotal);
-        //totalplaceholder = testtotal;
+        //System.out.println("After FG: " + testtotal);
 
         if(testtotal != totalpoints ){
            if(testtotal < totalpoints){
@@ -121,7 +117,6 @@ for(int iterator = referenceTD; iterator>=0; iterator--){
     testtotal+=tempSAFE;
 
     if(tempSAFE == 4){
-       // System.out.println("\n HEYYYYYYYYYYYY Test total IS:" + testtotal + "\n");
      }
 
     if(testtotal != totalpoints ){
@@ -130,8 +125,8 @@ for(int iterator = referenceTD; iterator>=0; iterator--){
 
      else{
          successes++;
-         System.out.println("SUCCESSFUL RUN FOR " + testtotal + "; Success Run #" + successes);
-         System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG + ", Total Safeties: " + placeholderSAFE);
+         System.out.println("   SUCCESSFUL RUN FOR " + testtotal + " POINT TOTAL; Success Run #" + successes);
+         System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG + ", Total Safeties: " + placeholderSAFE + "\n");
      }
 
      testtotal = totalplaceholder2;
@@ -143,8 +138,8 @@ for(int iterator = referenceTD; iterator>=0; iterator--){
 
         else{
             successes++;
-            System.out.println("SUCCESSFUL RUN FOR " + testtotal + "; Success Run #" + successes);
-            System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG  + ", Total Safeties: " + placeholderSAFE);
+            System.out.println("    SUCCESSFUL RUN FOR " + testtotal + " POINT TOTAL; Success Run #" + successes);
+            System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG  + ", Total Safeties: " + placeholderSAFE   + "\n");
         }
   
         testtotal = totalplaceholder;
@@ -152,49 +147,20 @@ for(int iterator = referenceTD; iterator>=0; iterator--){
 
   }
 
-
-
-
-
-  //System.out.println("Now for the safeties " + testtotal + ", and current totalplaceholder:" + totalplaceholder);
-/* 
-totalplaceholder = testtotal;
-placeholderSAFE = referenceSAFE;
-  while(placeholderSAFE > 0){
-    int tempSAFE = placeholderSAFE*2;
-    testtotal+=tempSAFE;
- 
-
-    if(testtotal != totalpoints ){
-
-     }
-
-     else{
-         successes++;
-         System.out.println("SUCCESSFUL RUN FOR " + testtotal + "; Success Run #" + successes);
-         System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG + ", Total Safeties: " + placeholderSAFE);
-     }
-
-     testtotal = totalplaceholder;
-     placeholderSAFE--;
-
-
-  } */
 }
 
         if(testtotal != totalpoints ){
-            System.out.println("2ND LOOP FAILED ATTEMPT WITH " + testtotal);
+  
         }
 
         else{
             successes++;
-            System.out.println("2ND LOOP SUCCESSFUL RUN WITH " + testtotal + "; Success Run #" + successes);
-            System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG + ", Total Safeties: " + placeholderSAFE);
+            System.out.println("SUCCESSFUL RUN WITH " + testtotal + " POINT TOTAL; Success Run #" + successes); //for ALL TD'S TOTAL
+            System.out.println("Total TD's: " + iterator + ", Total FG's: " + placeholderFG + ", Total Safeties: " + placeholderSAFE  + "\n");
         }
   
 testtotal = 0;
-//referenceTD = placeholder;
-//referenceFG = FG
+
     }
 
     System.out.println("\nTotal number of possibilties: " + successes);
