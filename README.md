@@ -15,4 +15,4 @@ From here there is another 2 paths that can be taken. If the  overall calculated
 
 After the complete run concludes and the successful runs with the totals of each scoring type is outputted, the total number of calculated possibilities is displayed and the program ends.
 
-FIN.
+**FIN.
