@@ -18,12 +18,10 @@ int totalsafety = 0;
 //int totalxpoints = 0;
 
 Scanner scan = new Scanner (System.in);
-
 System.out.print("Enter sport ( 'f' for Football or 'b' for Basketball): ");
+
 if( scan.hasNextLine()){
-
 String sport = scan.nextLine();
-
 //System.out.print("Enter the point total of one player"); //For basketball
 
 if(sport.equals("f") ){
@@ -32,23 +30,20 @@ if(sport.equals("f") ){
 
 for(int iterator = 0; iterator < totalpoints; iterator +=7){
     if(iterator + 7 > totalpoints){
-
     }
 
     else{
      totalTD++;
-    }
+        }
     }
 
 for(int iterator = 0; iterator < totalpoints; iterator +=3){
        if(iterator + 3 > totalpoints){
-
        }
 
        else{
         totalFG++;
        }
-  
      }
 
  for(int iterator = 0; iterator < totalpoints; iterator +=2){
@@ -63,7 +58,7 @@ for(int iterator = 0; iterator < totalpoints; iterator +=3){
 
 //System.out.println("\n (There will be at least " + totalTD + " TD's, " + totalFG + " FG's and " + totalsafety + " Safeties.)");
 
-int referenceTD = totalTD;
+int referenceTD = totalTD; //are these total... redundant?
 int referenceFG = totalFG;
 int referenceSAFE = totalsafety;
 
@@ -116,8 +111,6 @@ for(int iterator = referenceTD; iterator>=0; iterator--){
     //System.out.println("TempSAFE is " + tempSAFE +" and testtotal should be " + testtotal + "; Totalplaceholder?" + totalplaceholder2);
     testtotal+=tempSAFE;
 
-    if(tempSAFE == 4){
-     }
 
     if(testtotal != totalpoints ){
 
@@ -164,6 +157,7 @@ testtotal = 0;
     }
 
     System.out.println("\nTotal number of possibilties: " + successes);
+    scan.close(); //NEW FEATURE OOOO (Will result in a possible 'resource leak if not closed')
 
 } 
 
@@ -173,7 +167,7 @@ else{
 }
 
 
-}
+            }
     
     }
 }
