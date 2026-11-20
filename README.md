@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Point Possible
 ### Description: 
 Calculates every possible way scoring total was reached (Currently for NFL Football) 
